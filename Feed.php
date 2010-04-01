@@ -121,6 +121,10 @@ class Feed extends Control
 	 */
 	public static function prepareDate($date)
 	{
+		if ($date instanceof DateTime) {
+			$date = $date->getTimestamp();
+		}
+
 		if (is_string($date) && $date === (string) (int) $date) {
 			$date = (int) $date;
 		}
